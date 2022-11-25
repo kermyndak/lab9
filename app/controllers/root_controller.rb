@@ -1,11 +1,15 @@
+# frozen_string_literal: true
+
+# This class - controller for work with pages input and show
 class RootController < ApplicationController
-  def input
-  end
+  def input; end
 
   def show
-    unless params[:query].match?(/^[1-9]\d*$/)
-      redirect_to root_path, notice = 'Bad input...'
+    if params[:query].nil?
+      redirect_to root_path, notice: 'Empty parameter'
+      return
     end
+    redirect_to root_path, notice: 'Bad input...' unless params[:query].match?(/^[1-9]\d*$/)
     @arr = []
     @number = params[:query].to_i
     generate_arr
@@ -28,5 +32,6 @@ class RootController < ApplicationController
         @arr << [n, i].sort if find(n).sum == i && find(i).sum == n && !@arr.include?([n, i].sort)
       end
     end
+    'success'
   end
 end
