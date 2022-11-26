@@ -32,6 +32,5 @@ class RootController < ApplicationController
         @arr << [n, i].sort if find(n).sum == i && find(i).sum == n && !@arr.include?([n, i].sort)
       end
     end
-    'success'
   end
 end

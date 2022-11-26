@@ -27,6 +27,18 @@ RSpec.describe "Roots", type: :request do
       end
     end
 
+    context 'controller tests' do
+      it 'test @arr' do
+        get root_show_path, params: { query: 350 }
+        expect(assigns(:arr)).to eq([[1, 1], [6, 6], [28, 28], [220, 284]])
+      end
+
+      it 'test @number' do
+        get root_show_path, params: { query: 350 }
+        expect(assigns(:number)).to eq(350)
+      end
+    end
+
     context 'redirect to input' do
       it 'redirect with bad input' do
         get root_show_path, params: { query: 'qwerty' }
