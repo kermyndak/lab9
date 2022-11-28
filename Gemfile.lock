@@ -81,6 +81,10 @@ GEM
     erubi (1.11.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
+    hotwire-rails (0.1.3)
+      rails (>= 6.0.0)
+      stimulus-rails
+      turbo-rails
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.1.5)
@@ -92,6 +96,8 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    jsbundling-rails (1.0.3)
+      railties (>= 6.0.0)
     loofah (2.19.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -150,6 +156,7 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.0.6)
+    redis (4.8.0)
     reline (0.3.1)
       io-console (~> 0.5)
     rspec-core (3.12.0)
@@ -204,11 +211,14 @@ DEPENDENCIES
   bootsnap
   cssbundling-rails (~> 1.1)
   debug
+  hotwire-rails (~> 0.1.3)
   importmap-rails
   jbuilder
+  jsbundling-rails (~> 1.0)
   puma (~> 5.0)
   rails (~> 7.0.4)
   rails-controller-testing
+  redis (~> 4.0)
   rspec-rails
   sprockets-rails
   sqlite3 (~> 1.4)

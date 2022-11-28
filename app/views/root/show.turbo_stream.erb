@@ -1,0 +1,5 @@
+<% if @error %>
+    <%= turbo_stream.replace 'result', partial: 'error' %>
+<% else %>
+    <%= turbo_stream.replace 'result', partial: 'answer' %>
+<% end %>

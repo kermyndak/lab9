@@ -30,7 +30,7 @@ gem "jbuilder"
 gem "rspec-rails"
 
 # Use Redis adapter to run Action Cable in production
-# gem "redis", "~> 4.0"
+gem "redis", "~> 4.0"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -69,3 +69,7 @@ end
 
 
 gem "cssbundling-rails", "~> 1.1"
+
+gem "jsbundling-rails", "~> 1.0"
+
+gem "hotwire-rails", "~> 0.1.3"

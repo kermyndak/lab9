@@ -2,17 +2,21 @@
 
 # This class - controller for work with pages input and show
 class RootController < ApplicationController
-  def input; end
+  before_action :check, only: [:show]
+  def input 
+  end
 
   def show
-    if params[:query].nil?
-      redirect_to root_path, notice: 'Empty parameter'
-      return
-    end
-    redirect_to root_path, notice: 'Bad input...' unless params[:query].match?(/^[1-9]\d*$/)
+    generate_arr
+  end
+
+  private
+
+  def check
     @arr = []
     @number = params[:query].to_i
-    generate_arr
+    @error = false
+    @error = true unless params[:query].match?(/^[1-9]\d*$/)
   end
 
   def find(value)
@@ -27,10 +31,8 @@ class RootController < ApplicationController
   end
 
   def generate_arr
-    (1..@number).each do |n|
-      (1..@number).each do |i|
-        @arr << [n, i].sort if find(n).sum == i && find(i).sum == n && !@arr.include?([n, i].sort)
-      end
-    end
+    @arr = (1..@number).map { |i| [i, find(i).sum] }
+                       .select { |val, sum| sum <= @number && val != sum && val == find(sum).sum }
+                       .uniq(&:min)
   end
 end
