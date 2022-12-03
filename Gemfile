@@ -73,3 +73,11 @@ gem "cssbundling-rails", "~> 1.1"
 gem "jsbundling-rails", "~> 1.0"
 
 gem "hotwire-rails", "~> 0.1.3"
+
+gem "capybara", "~> 3.38"
+
+gem "webdrivers", "~> 5.2"
+
+gem "faker", "~> 3.0"
+
+gem "selenium-webdriver", "~> 4.7"
