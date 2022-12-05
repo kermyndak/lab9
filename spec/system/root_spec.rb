@@ -1,7 +1,6 @@
 require 'rails_helper.rb'
 
 RSpec.describe 'Static content', type: :system do
-  Selenium::WebDriver.for:firefox
   let(:input) { 1500 }
   let(:bad) { Faker::Lorem.word }
 
